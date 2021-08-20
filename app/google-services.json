@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "179049965160",
+    "firebase_url": "https://breathe-75f1b-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "breathe-75f1b",
+    "storage_bucket": "breathe-75f1b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:179049965160:android:f9d36e7889a584f339bddd",
+        "android_client_info": {
+          "package_name": "com.example.breathe_v1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "179049965160-hgf5c6pm4nvnv5627o5ge9aj2dvn88r5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq84TsG9aQjE1I_xt61oEPCRyWu5D3iCw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "179049965160-hgf5c6pm4nvnv5627o5ge9aj2dvn88r5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:179049965160:android:04ddfe4e1a00088539bddd",
+        "android_client_info": {
+          "package_name": "com.example.firestore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "179049965160-hgf5c6pm4nvnv5627o5ge9aj2dvn88r5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq84TsG9aQjE1I_xt61oEPCRyWu5D3iCw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "179049965160-hgf5c6pm4nvnv5627o5ge9aj2dvn88r5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
