@@ -32,6 +32,17 @@ public class ProductActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
+        
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getDataBaseData();
+    }
+
+    private void getDataBaseData() {
 
         progressBar = findViewById(R.id.progressBar);
 
@@ -40,15 +51,12 @@ public class ProductActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         productList = new ArrayList<>();
-
+        db = FirebaseFirestore.getInstance();
         adapter = new ProductsAdapter(this, productList);
+
         recyclerView.setAdapter(adapter);
 
-
-        db = FirebaseFirestore.getInstance();
-
-
-        db.collection("products").get() //
+        db.collection("Users").get() //
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -73,7 +81,6 @@ public class ProductActivity extends AppCompatActivity {
 
                     }
                 });
-
 
 
 

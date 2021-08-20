@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (!validateInputs(name, email, password)) {
 
             //connect with dataBase
-            CollectionReference dbProducts = db.collection("products");
+            CollectionReference dbProducts = db.collection("Users");
 
             // set value to Object
             Product product = new Product(name,  email, password );
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
-                            Toast.makeText(MainActivity.this, "Product Added", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this, "User Added", Toast.LENGTH_LONG).show();
                         }
                     })
                     // for some error

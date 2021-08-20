@@ -24,7 +24,7 @@ public class UpdateProduct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_product);
 
-        product = (Product) getIntent().getSerializableExtra("product");
+        product = (Product) getIntent().getSerializableExtra("Users");
         db = FirebaseFirestore.getInstance();
 
         editName = (EditText) findViewById(R.id.editName);
@@ -52,7 +52,7 @@ public class UpdateProduct extends AppCompatActivity {
     }
 
     private void deleteProduct() {
-        db.collection("products").document(product.getId()).delete()
+        db.collection("Users").document(product.getId()).delete()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -78,13 +78,13 @@ public class UpdateProduct extends AppCompatActivity {
 
             Product product1 = new Product(name, email, password);
 
-            //  data base eken product tika gannawa  ethanin id ekata adala eka gannawa ekata danata thiyana eka set karanawa
-            db.collection("products").document(product.getId())
+            db.collection("Users").document(product.getId())
                     .set(product1)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void unused) {
-                    Toast.makeText(UpdateProduct.this, "Product Update", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateProduct.this, "Users Update", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
             });
 

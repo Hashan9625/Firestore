@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,8 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         holder.textViewName.setText(product.getName().toString());
         holder.textViewEmail.setText(""+product.getEmail());
         holder.textViewPassword.setText(product.getPassword());
+
+
     }
 
     @Override
@@ -55,7 +58,6 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
             textViewEmail = itemView.findViewById(R.id.emailView);
             textViewPassword = itemView.findViewById(R.id.passwordView);
 
-
             itemView.setOnClickListener(this);
         }
 
@@ -63,7 +65,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         public void onClick(View v) {
             Product product = productList.get(getAdapterPosition());
             Intent intent = new Intent(mCtx, UpdateProduct.class);
-            intent.putExtra("product", product);
+            intent.putExtra("Users", product);
             mCtx.startActivity(intent);
 
         }
