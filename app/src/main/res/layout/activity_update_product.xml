@@ -41,6 +41,7 @@
         android:layout_height="40dp"
         android:background="@drawable/input_bg"
         android:hint="Password"
+        android:inputType="textPassword"
         android:paddingStart="18dp"
         app:layout_constraintBottom_toTopOf="@+id/editName"
         app:layout_constraintEnd_toEndOf="parent"

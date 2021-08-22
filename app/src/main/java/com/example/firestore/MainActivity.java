@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (v.getId()){
             case R.id.button:
-                saveProduct();
+                addUser();
                 break;
             case R.id.textView:
                 startActivity(new Intent(this, ProductActivity.class));
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    private void saveProduct() {
+    private void addUser() {
 
         String name = Name.getText().toString().trim();
         String email = Email.getText().toString().trim();
