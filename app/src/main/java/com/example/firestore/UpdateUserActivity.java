@@ -14,25 +14,25 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class UpdateProduct extends AppCompatActivity {
+public class UpdateUserActivity extends AppCompatActivity {
     private EditText editName,editEmail,editPass;
     private FirebaseFirestore db;
-    private Product product;
+    private UserVariable userVariable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_product);
 
-        product = (Product) getIntent().getSerializableExtra("Users");
+        userVariable = (UserVariable) getIntent().getSerializableExtra("Users");
         db = FirebaseFirestore.getInstance();
 
         editName = (EditText) findViewById(R.id.editName);
         editEmail = (EditText) findViewById(R.id.editEmail);
         editPass = (EditText) findViewById(R.id.editPassword);
-        editName.setText(product.getName());
-        editEmail.setText(product.getEmail());
-        editPass.setText(product.getPassword());
+        editName.setText(userVariable.getName());
+        editEmail.setText(userVariable.getEmail());
+        editPass.setText(userVariable.getPassword());
 
 
         findViewById(R.id.update).setOnClickListener(new View.OnClickListener() {
@@ -52,15 +52,15 @@ public class UpdateProduct extends AppCompatActivity {
     }
 
     private void deleteProduct() {
-        db.collection("Users").document(product.getId()).delete()
+        db.collection("Users").document(userVariable.getId()).delete()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful())
                         {
-                            Toast.makeText(UpdateProduct.this, "deleted", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UpdateUserActivity.this, "deleted", Toast.LENGTH_SHORT).show();
                             finish();
-                            startActivity(new Intent(UpdateProduct.this,ProductActivity.class));
+                            startActivity(new Intent(UpdateUserActivity.this, UserListActivity.class));
                         }
                     }
                 });
@@ -76,14 +76,14 @@ public class UpdateProduct extends AppCompatActivity {
         if (!validateInputs(name, email, password))
         {
 
-            Product product1 = new Product(name, email, password);
+            UserVariable userVariable1 = new UserVariable(name, email, password);
 
-            db.collection("Users").document(product.getId())
-                    .set(product1)
+            db.collection("Users").document(userVariable.getId())
+                    .set(userVariable1)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void unused) {
-                    Toast.makeText(UpdateProduct.this, "Users Update", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateUserActivity.this, "Users Update", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             });

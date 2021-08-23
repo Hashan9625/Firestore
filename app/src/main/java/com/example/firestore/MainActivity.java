@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Password = findViewById(R.id.password);
 
 
-        findViewById(R.id.button).setOnClickListener(this);
-        findViewById(R.id.textView).setOnClickListener(this);
+        findViewById(R.id.addUser).setOnClickListener(this);
+        findViewById(R.id.viewUser).setOnClickListener(this);
     }
 
     //button method
@@ -45,11 +45,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
 
         switch (v.getId()){
-            case R.id.button:
+            case R.id.addUser:
                 addUser();
                 break;
-            case R.id.textView:
-                startActivity(new Intent(this, ProductActivity.class));
+            case R.id.viewUser:
+                startActivity(new Intent(this, UserListActivity.class));
                 break;
         }
 
@@ -93,12 +93,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (!validateInputs(name, email, password)) {
 
             //connect with dataBase
-            CollectionReference dbProducts = db.collection("Users");
+            CollectionReference dbUsers = db.collection("Users");
 
-            // set value to Object
-            Product product = new Product(name,  email, password );
+            // set value to userVariable Object
+            UserVariable userVariable = new UserVariable(name,  email, password );
 
-            dbProducts.add(product)
+            // save user data to the data base
+            dbUsers.add(userVariable)
                     // code for save data
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override

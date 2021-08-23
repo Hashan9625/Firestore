@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -18,11 +18,11 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductActivity extends AppCompatActivity {
+public class UserListActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private ProductsAdapter adapter;
-    private List<Product> productList;
+    private UserListAdapter adapter;
+    private List<UserVariable> userVariableList;  // that list used to store data and it send to RecyclerView
     private ProgressBar progressBar;
 
 
@@ -31,7 +31,7 @@ public class ProductActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product);
+        setContentView(R.layout.activity_user_list);
         
 
     }
@@ -50,14 +50,15 @@ public class ProductActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        productList = new ArrayList<>();
+        userVariableList = new ArrayList<>();  // array list
         db = FirebaseFirestore.getInstance();
-        adapter = new ProductsAdapter(this, productList);
+        adapter = new UserListAdapter(this, userVariableList);  // RecyclerView object
 
-        recyclerView.setAdapter(adapter);
 
-        db.collection("Users").get() //
+
+        db.collection("Users").get() // to get data from database
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @SuppressLint("NotifyDataSetChanged")
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
@@ -65,13 +66,13 @@ public class ProductActivity extends AppCompatActivity {
 
                         if(!queryDocumentSnapshots.isEmpty()) // document
                         {
-                            List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();//  for get all document
+                            List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();    //  for get all document
 
                             for (DocumentSnapshot d : list) // one by one
                             {
-                                Product product = d.toObject(Product.class);  // convert to object
-                                product.setId(d.getId());
-                                productList.add(product);
+                                UserVariable userVariable = d.toObject(UserVariable.class);  // convert to object
+                                userVariable.setId(d.getId());
+                                userVariableList.add(userVariable);
 
                             }
 
@@ -82,6 +83,9 @@ public class ProductActivity extends AppCompatActivity {
                     }
                 });
 
+
+
+        recyclerView.setAdapter(adapter);
 
 
     }

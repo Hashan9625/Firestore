@@ -5,7 +5,9 @@ import com.google.firebase.firestore.Exclude;
 import java.io.Serializable;
 
 // want pass an object in intent first implements Serializable to class
-public class Product implements Serializable {    //   this is model class
+
+// Act as an intermediary in the RecyclerView and dataBase ; On receipt and discharge fist save here
+public class UserVariable implements Serializable {    //   this is model class
 
     //  attribute
 
@@ -14,11 +16,11 @@ public class Product implements Serializable {    //   this is model class
 
 
     // constructor
-    public Product(){
+    public UserVariable(){
 
     }
 
-    public Product(String name, String email, String password) {
+    public UserVariable(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;

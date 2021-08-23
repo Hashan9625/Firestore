@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Firestore">
         <activity
-            android:name=".UpdateProduct"
+            android:name=".UpdateUserActivity"
             android:exported="true" />
         <activity
-            android:name=".ProductsAdapter"
+            android:name=".UserListAdapter"
             android:exported="true" />
         <activity
-            android:name=".ProductActivity"
+            android:name=".UserListActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

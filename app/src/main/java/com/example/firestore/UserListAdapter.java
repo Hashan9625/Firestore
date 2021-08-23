@@ -1,11 +1,9 @@
 package com.example.firestore;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,40 +11,46 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductViewHolder> {
+//  This class Applies to RecyclerView
+public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ProductViewHolder> {
 
     private Context mCtx;
-    private List<Product> productList;
+    private List<UserVariable> userVariableList;
 
-    public ProductsAdapter(Context mCtx, List<Product> productList) {
+    public UserListAdapter(Context mCtx, List<UserVariable> userVariableList) {
         this.mCtx = mCtx;
-        this.productList = productList;
+        this.userVariableList = userVariableList;
     }
 
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ProductViewHolder(
-                LayoutInflater.from(mCtx).inflate(R.layout.layout_product, parent, false)
+//              link with list item
+                LayoutInflater.from(mCtx).inflate(R.layout.list_item, parent, false)
         );
     }
 
+    //  this call after call above method  / bind data to view object / call one item by one item
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
-        Product product = productList.get(position);
+        // in this get position and it set to userVariable
+        UserVariable userVariable = userVariableList.get(position);
 
-        holder.textViewName.setText(product.getName().toString());
-        holder.textViewEmail.setText(""+product.getEmail());
-        holder.textViewPassword.setText(product.getPassword());
+        holder.textViewName.setText(userVariable.getName().toString());
+        holder.textViewEmail.setText(""+ userVariable.getEmail());
+        holder.textViewPassword.setText(userVariable.getPassword());
 
 
     }
 
+//   how many items in RecyclerView
     @Override
     public int getItemCount() {
-        return productList.size();
+        return userVariableList.size();
     }
 
+   // link GUI component relevant to RecyclerView
     class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView textViewName, textViewEmail, textViewPassword;
@@ -58,14 +62,16 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
             textViewEmail = itemView.findViewById(R.id.emailView);
             textViewPassword = itemView.findViewById(R.id.passwordView);
 
+            // What happens when you click an item
             itemView.setOnClickListener(this);
         }
 
+       // What happens when you click item
         @Override
         public void onClick(View v) {
-            Product product = productList.get(getAdapterPosition());
-            Intent intent = new Intent(mCtx, UpdateProduct.class);
-            intent.putExtra("Users", product);
+            UserVariable userVariable = userVariableList.get(getAdapterPosition());
+            Intent intent = new Intent(mCtx, UpdateUserActivity.class);
+            intent.putExtra("Users", userVariable);
             mCtx.startActivity(intent);
 
         }

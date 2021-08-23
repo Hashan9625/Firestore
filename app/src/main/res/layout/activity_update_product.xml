@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/singin"
-    tools:context=".UpdateProduct">
+    tools:context=".UpdateUserActivity">
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/editName"

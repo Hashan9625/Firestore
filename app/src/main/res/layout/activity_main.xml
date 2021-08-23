@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/textView"
+        android:id="@+id/viewUser"
         android:layout_width="257dp"
         android:layout_height="40dp"
         android:background="@drawable/btn_bg"
@@ -31,7 +31,7 @@
         android:background="@drawable/input_bg"
         android:gravity="center"
         android:hint="name"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/addUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,14 +69,14 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addUser"
         android:layout_width="257dp"
         android:layout_height="40dp"
         android:background="@drawable/btn_bg"
         android:fontFamily="sans-serif-black"
         android:text="add user"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/viewUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
