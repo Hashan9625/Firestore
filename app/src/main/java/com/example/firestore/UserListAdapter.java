@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.List;
 
 //  This class Applies to RecyclerView
-public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ProductViewHolder> {
+public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserViewHolder> {
 
     private Context mCtx;
     private List<UserVariable> userVariableList;
@@ -24,8 +24,8 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.Produc
 
     @NonNull
     @Override
-    public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ProductViewHolder(
+    public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new UserViewHolder(
 //              link with list item
                 LayoutInflater.from(mCtx).inflate(R.layout.list_item, parent, false)
         );
@@ -33,7 +33,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.Produc
 
     //  this call after call above method  / bind data to view object / call one item by one item
     @Override
-    public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         // in this get position and it set to userVariable
         UserVariable userVariable = userVariableList.get(position);
 
@@ -51,11 +51,11 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.Produc
     }
 
    // link GUI component relevant to RecyclerView
-    class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class UserViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView textViewName, textViewEmail, textViewPassword;
 
-        public ProductViewHolder(View itemView) {
+        public UserViewHolder(View itemView) {
             super(itemView);
 
             textViewName = itemView.findViewById(R.id.nameView);
