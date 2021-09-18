@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirebaseAddData">
+
+    <Button
+        android:id="@+id/merge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="merge"
+        app:layout_constraintBottom_toTopOf="@+id/dataTypes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="id"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editText2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="value"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/merge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText1" />
+
+    <Button
+        android:id="@+id/dataTypes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data types"
+        app:layout_constraintBottom_toTopOf="@+id/updateFire"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/merge" />
+
+    <Button
+        android:id="@+id/updateFire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="update"
+        app:layout_constraintBottom_toTopOf="@+id/UpdateElementsInAnArray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dataTypes" />
+
+    <Button
+        android:id="@+id/UpdateElementsInAnArray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update elements in an array"
+        app:layout_constraintBottom_toTopOf="@+id/IncrementANumericValue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateFire" />
+
+    <Button
+        android:id="@+id/IncrementANumericValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Increment a numeric value"
+        app:layout_constraintBottom_toTopOf="@+id/whereEqualTo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UpdateElementsInAnArray" />
+
+    <Button
+        android:id="@+id/whereEqualTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="whereEqualTo"
+        app:layout_constraintBottom_toTopOf="@+id/multipleDocuments"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IncrementANumericValue" />
+
+    <Button
+        android:id="@+id/multipleDocuments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="multiple documents in a collection"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/whereEqualTo" />
+</androidx.constraintlayout.widget.ConstraintLayout>
